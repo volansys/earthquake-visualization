@@ -1,5 +1,5 @@
 #################################################################
-Polish LOCATION_NAME column in the significant earthquake data ##
+#Polish LOCATION_NAME column in the significant earthquake data ##
 #################################################################
 
 #'
