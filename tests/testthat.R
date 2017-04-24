@@ -1,4 +1,4 @@
 library(NOAA)
 library(testthat)
 
-test_check("NOAA")
+test_check("earthquakevisualization")
