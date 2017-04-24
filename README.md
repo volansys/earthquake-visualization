@@ -1,5 +1,7 @@
 # `NOAA`: Functions for processing and visualizing earthquake dataset
 
+[![Travis-CI Build Status](https://travis-ci.org/volansys/earthquake-visualization.svg?branch=master)](https://travis-ci.org/volansys/earthquake-visualization)
+
 This package operates on dataset obtained from the U.S. National Oceanographic and Atmospheric Administration (NOAA) on significant earthquakes around the world.
 
 This package has several functions for processing and filtering of the earthquake dataset: `eq_location_clean()`, `eq_clean_data()`, `filter_date_and_country()`, `eq_create_label()`.
