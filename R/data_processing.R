@@ -70,7 +70,7 @@ eq_clean_data <- function(NOAA_url) {
     tidyr::unite(data$DATE, data$YEAR, data$MONTH, data$DAY, sep = "-") %>%
     dplyr::mutate(DATE = as.Date(data$DATE, format = "%Y-%m-%d", origin = '1900-1-1')) %>%
     dplyr::filter(!is.na(data$DATE) & data$LATITUDE != "       ") %>%
-    dplyr::mutate(data$LATITUDE = as.numeric(data$LATITUDE),
+    dplyr::mutate(LATITUDE = as.numeric(data$LATITUDE),
                   LONGITUDE = as.numeric(data$LONGITUDE),
                   COUNTRY = as.factor(data$COUNTRY),
                   EQ_MAG_MW = as.numeric(data$EQ_MAG_MW),
