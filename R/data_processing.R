@@ -66,15 +66,15 @@ eq_clean_data <- function(NOAA_url) {
     readr::read_delim(NOAA_url, delim = "\t", progress = FALSE)
   })
   processed_data = raw_data %>%
-    dplyr::filter(YEAR >= 1900) %>%
-    tidyr::unite(DATE, YEAR, MONTH, DAY, sep = "-") %>%
-    dplyr::mutate(DATE = as.Date(DATE, format = "%Y-%m-%d", origin = '1900-1-1')) %>%
-    dplyr::filter(!is.na(DATE) & LATITUDE != "       ") %>%
-    dplyr::mutate(LATITUDE = as.numeric(LATITUDE),
-                  LONGITUDE = as.numeric(LONGITUDE),
-                  COUNTRY = as.factor(COUNTRY),
-                  EQ_MAG_MW = as.numeric(EQ_MAG_MW),
-                  DEATHS = ifelse(!is.na(DEATHS), as.numeric(DEATHS), 0))
+    dplyr::filter(data$YEAR >= 1900) %>%
+    tidyr::unite(data$DATE, data$YEAR, data$MONTH, data$DAY, sep = "-") %>%
+    dplyr::mutate(DATE = as.Date(data$DATE, format = "%Y-%m-%d", origin = '1900-1-1')) %>%
+    dplyr::filter(!is.na(data$DATE) & data$LATITUDE != "       ") %>%
+    dplyr::mutate(data$LATITUDE = as.numeric(data$LATITUDE),
+                  LONGITUDE = as.numeric(data$LONGITUDE),
+                  COUNTRY = as.factor(data$COUNTRY),
+                  EQ_MAG_MW = as.numeric(data$EQ_MAG_MW),
+                  DEATHS = ifelse(!is.na(data$DEATHS), as.numeric(data$DEATHS), 0))
 
   eq_location_clean(processed_data)
 }
