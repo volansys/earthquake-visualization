@@ -22,7 +22,7 @@
 #' @export
 eq_location_clean = function(data){
   data %>%
-    dplyr::mutate(LOCATION_NAME = sapply(LOCATION_NAME, function(x){
+    dplyr::mutate(data$LOCATION_NAME = sapply(data$LOCATION_NAME, function(x){
       x = gsub("\\]|\\)", "", gsub("^.+:[ | ]+", "", x))
       x = gsub(" \\(| \\[", ", ", x)
       splited = strsplit(x, " ")[[1]]
